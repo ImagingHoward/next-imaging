@@ -1,0 +1,148 @@
+
+@mixin wrapper()
+    max-width: 70rem
+    margin-right: auto
+    margin-left: auto
+    padding: 1.25rem
+
+@mixin homeHeader()
+    margin-top: 50px
+    margin-bottom: 20px
+    color: #002A47
+    font-size: 2rem
+    font-weight: 900
+
+@mixin homeBlurb()
+    margin-bottom: 50px
+
+@mixin  blockHeader()
+    font-size: 1.4rem
+    font-weight: 700
+    margin-bottom: 20px
+    background: #003A63
+    color: #fff
+    & > div
+        padding: 1rem 1rem
+        display: flex
+        align-items: center
+        & > svg
+            margin-right: 10px
+
+@mixin featuredInner()
+    background-color: #fff
+    font-size: 1.1rem
+    font-weight: 600
+    color: #002A47
+    margin: 50px 0
+    display: flex
+    & > img
+        max-width: 500px
+    & > div
+        padding: 60px
+        & > ul > li
+            margin-bottom: 20px
+    @media screen and (max-width: 960px)
+        & > div
+            padding: 25px
+        & > img
+            max-width: 350px
+    @media screen and (max-width: 690px)
+        flex-direction: column
+        background-color: #F2F2F2
+        border-left: 0
+        & > div
+            padding: 20px 0
+
+@mixin featured()
+    padding: 12px
+    margin-bottom: 12px
+    & > h3
+        margin: 30px 0
+        font-family: "Open Sans",sans-serif
+        font-weight: bold
+        font-size: 2rem
+        line-height: 1.4
+        color: #003a63
+    p
+        margin: 20px 0
+        color: #666
+    ul
+        padding: 0 50px
+        list-style: disc
+        line-height: 1.5
+
+@mixin featuredResearch()
+    display: flex
+    width: 100%
+    justify-content: space-between
+    align-items: stretch
+    & > .featuredResearchHight
+        display: flex
+        flex-direction: column
+        background-color: #fff
+        width: calc( (100% - 50px) / 3 )
+        &:hover
+            background-color: #e2c46d
+        & > .researchImg
+            display: flex
+            padding: 0
+            background-color: #000
+            height: 396.3px
+            width: 100%
+            vertical-align: center
+            & > img
+                width: 100%
+                object-fit: contain
+        & > div
+            padding: 20px 20px
+            & > .title
+                color: #003A63
+                font-size: 1.1rem
+                font-weight: 900
+                font-family: "Serif12Beta", serif
+                cursor: pointer
+            & > .author
+                padding: 10px 0
+                font-size: 0.8rem
+    @media screen and (max-width: 890px)
+        & > .featuredResearchHight
+            & > .researchImg
+                height: 260px
+    @media screen and (max-width: 690px)
+        flex-direction: column
+        & > .featuredResearchHight
+            padding: 15px
+            max-width: 100%
+            // flex-direction: row
+            align-items: flex-start
+            margin-bottom: 20px
+            width: 100%
+            & > div
+                padding-left: 20px
+                padding-top: 0
+            & > .researchImg
+                width: 100%
+                height: auto
+                & > img
+                    width: 100%
+                    height: 100%
+
+@mixin headerTitle()
+    color: #002A47
+    font-size: 2rem
+    font-weight: 700
+
+.wrapper
+    @include wrapper()
+    .homeHeader
+        @include homeHeader()
+    .homeBlurb
+        @include homeBlurb()
+    .blockHeader
+        @include blockHeader()
+    .featuredInner
+        @include featuredInner()
+    .featured
+        @include featured()
+    .featuredResearch
+        @include featuredResearch()

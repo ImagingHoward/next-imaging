@@ -1,5 +1,5 @@
 :root {
-  --background: #ffffff;
+  --background: #F2F2F2;
   --foreground: #171717;
 }
 
@@ -16,10 +16,17 @@ body {
   overflow-x: hidden;
 }
 
+html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+  -webkit-tap-highlight-color: transparent; /* 3*/
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -39,4 +46,34 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+p,
+table,
+blockquote,
+address,
+pre,
+iframe,
+form,
+figure,
+dl {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
