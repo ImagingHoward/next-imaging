@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./research-highlights.module.sass";
 
-import ResearchHighlightsList from "@/constants/mil/highlight-list";
+import ResearchHighlightsList from "@/constants/mil/research/highlight-list";
 
 const ResearchHighlightsLists = () => {
   return (

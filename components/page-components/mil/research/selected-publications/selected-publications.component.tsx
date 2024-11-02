@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./selected-publications.module.sass";
 
-import SelectedPublicationsList from "@/constants/mil/selected-publicationsL-list";
+import SelectedPublicationsList from "@/constants/mil/research/selected-publicationsL-list";
 
 const SelectedPublications = () => {
   return (

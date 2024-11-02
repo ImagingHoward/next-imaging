@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./full-publications.module.sass";
 import { IoMdPaper } from "react-icons/io";
 
-import FullPublicationsList from "@/constants/mil/full-publications-list";
+import FullPublicationsList from "@/constants/mil/research/full-publications-list";
 
 const FullPublications = () => {
   return (

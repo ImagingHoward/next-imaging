@@ -1,12 +1,12 @@
 import { GetServerSideProps } from 'next';
 import { Research } from "@/@types/mil/research";
-import ResearchHighlightsList from "@/constants/mil/highlight-list";
+import ResearchHighlightsList from "@/constants/mil/research/highlight-list";
 
 import { MilTemplate } from '@/components/page-templates';
 import MilHead from '@/components/basic-components/mil/head/head.component';
 import Container from '@/components/basic-components/layout/container/container.component';
-import { Highlight } from '@/components/page-components/mil/research';
 import Breadcrumbs from '@/components/shared-components/breadcrumbs/breadcrumbs.component';
+import { Highlight } from '@/components/page-components/mil/research';
 
 interface IProps {
 	data: Research.IHighlight;
