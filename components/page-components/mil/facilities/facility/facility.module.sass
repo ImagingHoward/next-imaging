@@ -1,0 +1,58 @@
+@mixin wrapper()
+  margin-right: auto
+  margin-left: auto
+
+@mixin  blockHeader()
+  font-size: 1.4rem
+  font-weight: 700
+  margin-bottom: 20px
+  background: #003A63
+  color: #fff
+  & > div
+    padding: 1rem 1rem
+    display: flex
+    align-items: center
+    & > svg
+      margin-right: 10px
+
+@mixin item()
+  background-color: #fff
+  display: flex
+  justify-content: space-between
+  border-left: 0.5rem solid #191d32
+  margin: 50px 0
+  color: #002A47
+  & > img
+    max-width: 500px
+    width: 350px
+  & > div
+    padding: 1.25rem
+    position: relative
+    & > h2
+      margin-bottom: 20px
+      font-size: 1.5rem
+      font-weight: 900
+    & > ul
+      padding-left: 30px
+      list-style: disc
+      font-size: 0.9rem
+    & > div
+      position: absolute
+      bottom: 20px
+      right: 0
+      & > a
+        cursor: pointer
+        color: #021fae
+  @media screen and (max-width: 690px)
+    flex-direction: column-reverse
+    background-color: #F2F2F2
+    border-left: 0
+    & > img
+      width: 100%
+
+.wrapper
+  @include wrapper()
+  .blockHeader
+    @include blockHeader()
+  .item
+    @include item()

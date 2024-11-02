@@ -1,0 +1,64 @@
+@mixin wrapper()
+  & > h2
+    font-size: 1.5rem
+    font-weight: 700
+    margin-top: 20px
+    color: #003a63
+
+@mixin researchContent()
+  padding: 2rem 0 2rem 0rem
+  @media screen and (max-width: 890px)
+    padding: 1rem 0rem 1rem 0rem
+  & > .blockHeader
+    display: flex
+    font-size: 1.4rem
+    font-weight: 700
+    margin-bottom: 20px
+    background: #003A63
+    color: #fff
+    justify-content: space-between
+    & > div
+      display: flex
+      align-items: center
+      padding: 1rem 1rem
+      & > svg
+        margin-right: 10px
+    & > .more
+      background: rgba(0, 0, 0, 0.2)
+      height: 100%
+      font-size: 1.2rem
+      &:hover
+        & > a
+          text-decoration: underline
+          .narrow
+            background-color: rgb(244, 204, 4)
+      .flex
+        display: flex
+        justify-content: center
+        align-items: flex-end
+      .narrow
+        margin-left: 10px
+        border-radius: 50%
+        width: 25px
+        height: 25px
+        color: #000
+        background: #fff
+        display: flex
+        justify-content: center
+        align-items: center
+    @media screen and (max-width: 690px)
+      flex-direction: column
+      & > .more
+        justify-content: flex-start
+
+@mixin header()
+  font-size: 1.5rem
+  line-height: 1.5
+  margin-bottom: 30px
+
+.wrapper
+  @include wrapper()
+  .researchContent
+    @include researchContent()
+    .header
+      @include header()

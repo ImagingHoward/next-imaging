@@ -1,0 +1,59 @@
+@mixin wrapper()
+  margin-right: auto
+  margin-left: auto
+  margin-bottom: 50px
+
+@mixin  blockHeader()
+  display: flex
+  font-size: 1.4rem
+  font-weight: 700
+  margin-bottom: 20px
+  background: #003A63
+  color: #fff
+  justify-content: space-between
+  & > div
+    display: flex
+    align-items: center
+    padding: 1rem 1rem()
+  & > svg
+    margin-right: 10px
+
+@mixin imgBlur()
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  & > img
+    max-width: 680px
+    width: 100%
+    margin: 50px 0 10px 0
+  & > div
+    max-width: 680px
+    width: 100%
+    padding: 10px
+
+@mixin reference()
+  & > h2
+    font-size: 1.5rem
+    line-height: 1.4
+    margin-bottom: 0.625em
+    color: #003a63
+    font-family: "Open Sans",sans-serif
+    font-weight: 900
+  & > ul > li
+    margin-bottom: 0.625em
+  & a
+    color: #235C9E
+    cursor: pointer
+    &:hover
+      color: #378ff5
+      font-weight: 600
+
+.wrapper
+  @include wrapper()
+  .blockHeader
+    @include blockHeader()
+  .imgBlur
+    @include imgBlur()
+  .reference
+    @include reference()

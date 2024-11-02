@@ -1,10 +1,19 @@
 import { MilTemplate } from '@/components/page-templates';
-import { Head, Home }  from '@/components/page-components/mil';
+import MilHead from '@/components/basic-components/mil/head/head.component';
+import Hero from "@/components/basic-components/mil/hero/hero.component";
+import Home from '@/components/page-components/mil/home/home.component';
 
-const MilHome = ()  =>{
+import heroBackground from "@/assets/mil/home/hero/homePage.jpg";
+
+
+const MilHome = () => {
   return (
     <MilTemplate>
-      <Head />
+      <MilHead />
+      <Hero
+        background={heroBackground}
+        title="Howard University Molecular Imaging Laboratory"
+      />
       <Home />
     </MilTemplate>
   );

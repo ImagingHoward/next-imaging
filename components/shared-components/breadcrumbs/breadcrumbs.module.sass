@@ -1,0 +1,44 @@
+@mixin breadcrumbs()
+  display: block
+  width: 100%
+  min-height: 20px
+  margin-bottom: 20px
+  box-sizing: border-box
+  @media print
+    display: none !important
+
+@mixin crumb()
+  display: inline-block
+  font-size: 14px
+  font-weight: 600
+  color: #bbb
+  text-decoration: none
+  text-transform: uppercase
+  line-height: 1.6
+  cursor: default
+  vertical-align: middle
+  transition: color 0.2s ease-in-out
+  &[href]
+    cursor: pointer
+    color: #999
+    &:hover, &:active
+      color: #ccc
+
+@mixin caret()
+  font-size: 10px
+  color: #999
+  vertical-align: middle
+  margin: 0 6px
+
+@mixin breadcrumbsNotLinked()
+  color: #666
+  font-weight: 700
+
+.breadcrumbs
+  @include breadcrumbs()
+  & > a, & > span
+    @include crumb()
+  & > svg
+    @include caret()
+  & > .breadcrumbsNotLinked
+    @include breadcrumbsNotLinked()

@@ -1,61 +1,60 @@
 @mixin wrapper()
-    margin-left: 0px
-    margin-top: 0px
-    padding-left: 0px
-    padding-top: 0px
-    height: auto
-    color: #fff
-    overflow: hidden
-    background-color: #003A63
-    & > .skew
-        clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 0% 100%)
+  margin-left: 0px
+  margin-top: 0px
+  padding-left: 0px
+  padding-top: 0px
+  height: auto
+  color: #fff
+  overflow: hidden
+  background-color: #003A63
+  & > .skew
+    clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 0% 100%)
 
 @mixin hero()
-    position: relative
-    background-position: 50% 38%!important
-    background-size: cover!important
-    min-height: 400px
-    &::after
-        content: ""
-        position: absolute
-        top: 0
-        left: 0
-        width: 100%
-        height: 100%
-        background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%)
-        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%)
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000',endColorstr='#bf000000',GradientType=0)
-        z-index: 0
+  position: relative
+  background-position: 50% 38%!important
+  background-size: cover!important
+  min-height: 400px
+  &::after
+    content: ""
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%)
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000',endColorstr='#bf000000',GradientType=0)
+    z-index: 0
 
 @mixin compartment()
-    max-width: 68.75rem
-    margin-right: auto
-    margin-left: auto
-    padding: 1rem
-    .heroContent
-        padding: 4rem 0
-        max-width: 70rem
-        z-index: 5
-        position: relative
-        & > h2
-            margin-bottom: 0
-            font-size: 4rem
-            font-weight: 700
-            line-height: 1.5
-            max-width: 50rem
-        @media screen and (max-width: 990px)
-            padding: 5rem 0
-            &> h2
-                font-size: 2.8rem
-                line-height: 1.5
-            @media screen and (max-width: 990px)
-                font-size: 1rem
-                padding-top: 10px
-                color: #eee
+  max-width: 68.75rem
+  margin-right: auto
+  margin-left: auto
+  padding: 1rem
+
+@mixin heroContent()
+  padding: 4rem 0
+  max-width: 70rem
+  z-index: 5
+  position: relative
+  & > h2
+    margin-bottom: 0
+    font-size: 4rem
+    font-weight: 700
+    line-height: 1.5
+    max-width: 50rem
+  @media screen and (max-width: 990px)
+    padding: 5rem 0
+    &> h2
+      font-size: 2.8rem
+      line-height: 1.5
 
 .wrapper
-    @include wrapper()
-    .hero
-        @include hero()
-        & > .compartment
-            @include compartment()
+  @include wrapper()
+  .hero
+    @include hero()
+    & > .compartment
+      @include compartment()
+      .heroContent
+        @include heroContent()

@@ -5,21 +5,15 @@ import { MdOutlineEventAvailable } from "react-icons/md";
 import { GoMegaphone } from "react-icons/go";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 
-import heroBackground from "@/assets/mil/home/hero/homePage.jpg";
 import howardRCMI from "@/assets/mil//home/images/howardRCMI.jpg";
 import researchAtlas from "@/assets/mil/home/images/researchAtlas.jpg";
 import researchTbi from "@/assets/mil/home/images/researchTbi.jpg";
 import researchChd from "@/assets/mil/home/images/researchChd.jpg";
 
-import Hero from "@/components/basic-components/mil/hero/hero.component";
 
 const Home = () => {
   return (
     <>
-      <Hero
-        background={heroBackground}
-        title="Howard University Molecular Imaging Laboratory"
-      />
       <div className={classes.wrapper}>
         <div className={classes.homeHeader}>Howard University Imaging Core</div>
         <div className={classes.homeBlurb}>

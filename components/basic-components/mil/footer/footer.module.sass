@@ -1,59 +1,56 @@
-@use '../../../../styles/settings/responsive' as responsive
-
 @mixin wrapper()
-    position: relative
-    z-index: 400
-    clear: both
-    padding: 2.5rem
-    background: #003a63
-    color: #fff
-    display: flex
-    justify-content: space-around
-    @media screen and (max-width: responsive.$tablet)
-        padding: 20px
-        flex-direction: column
-        align-items: flex-start
-        align-content: flex-start
+  position: relative
+  z-index: 400
+  clear: both
+  padding: 2.5rem
+  background: #003a63
+  color: #fff
+  display: flex
+  justify-content: space-around
+  @media screen and (max-width: 800px)
+    padding: 20px
+    flex-direction: column
+    align-items: flex-start
+    align-content: flex-start
 
 @mixin footer()
-    padding: 10px 40px 0 40px
-    flex: 0.25
-    line-height: 1.5
-    & .siteLogo
-        display: block
-        overflow: hidden
-        height: 4.0625em
-        max-width: 11.25em
-        width: 100%
-        white-space: nowrap
-        background: url(../../../../assets/mil/icons/HowardBoxLogo.png) 0 50% no-repeat
-        background-size: contain
-        color: transparent
-        margin-right: 1.875rem
-        margin-bottom: 0.5rem
-    & > ul > li
-        font-size: 1.1rem
-        line-height: 1.7
-        & > a:hover
-            color: rgb(212, 212, 212)
+  padding: 10px 40px 0 40px
+  flex: 0.25
+  line-height: 1.5
+  & .siteLogo
+    display: block
+    overflow: hidden
+    height: 4.0625em
+    max-width: 11.25em
+    width: 100%
+    white-space: nowrap
+    background: url(../../../../assets/mil/icons/HowardBoxLogo.png) 0 50% no-repeat
+    background-size: contain
+    color: transparent
+    margin-right: 1.875rem
+    margin-bottom: 0.5rem
+  & > ul > li
+    font-size: 1.1rem
+    line-height: 1.7
+    margin-top: 0
+    margin-bottom: 0
+    padding-left: 0
+    & > a:hover
+      color: rgb(212, 212, 212)
 
-    @media screen and (max-width: responsive.$tablet)
-        width: 90%
-        padding: 20px
-    & > ul > li
-        margin-top: 0
-        margin-bottom: 0
-        padding-left: 0
+  @media screen and (max-width: 800px)
+    width: 90%
+    padding: 20px
 
 @mixin sole()
-    border-right: 1px solid #9B9B9B
-    @media screen and (max-width: responsive.$tablet)
-        border-bottom: 1px solid #9B9B9B
-        border-right: 0px
+  border-right: 1px solid #9B9B9B
+  @media screen and (max-width: 800px)
+    border-bottom: 1px solid #9B9B9B
+    border-right: 0px
 
 .wrapper
-    @include wrapper()
-    .footer
-        @include footer()
-    .sole
-        @include sole()
+  @include wrapper()
+  .footer
+    @include footer()
+  .sole
+    @include sole()

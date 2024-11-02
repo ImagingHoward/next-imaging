@@ -11,7 +11,7 @@ const MilTemplate = (props: IProps) => {
   return (
     <>
       <NavBar />
-      	<div>{props.children}</div>
+      <div>{props.children}</div>
       <Footer />
     </>
   );

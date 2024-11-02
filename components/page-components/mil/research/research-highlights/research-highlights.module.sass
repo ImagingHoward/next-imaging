@@ -1,0 +1,29 @@
+@mixin researchHightlights()
+  margin-bottom: 50px
+  width: 100%
+  display: flex
+  color: #666
+  font-size: 1.1rem
+  line-height: 1.5
+  & > img
+    width: 400px
+    margin-right: 20px
+  .title
+    font-size: 1.2rem
+    font-weight: 600
+    margin-bottom: 20px
+    font-style: normal
+  .author
+    font-style: italic
+    margin-bottom: 10px
+    font-size: 0.9rem
+  @media screen and (max-width: 890px)
+    & > img
+      width: 350px
+  @media screen and (max-width: 690px)
+    flex-direction: column
+    & > img
+      width: 100%
+
+.researchHightlights
+  @include researchHightlights()

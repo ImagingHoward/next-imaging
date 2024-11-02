@@ -1,0 +1,122 @@
+@mixin wrapper()
+  margin-right: auto
+  margin-left: auto
+
+@mixin  blockHeader()
+  font-size: 1.4rem
+  font-weight: 700
+  margin-bottom: 20px
+  background: #003A63
+  color: #fff
+  & > div
+    padding: 1rem 1rem
+    display: flex
+    align-items: center
+    & > svg
+      margin-right: 10px
+
+@mixin faclities()
+  padding: 30px 0
+  & > div
+    margin-bottom: 20px
+  & > h2
+    margin-bottom: 20px
+    font-size: 1.8rem
+    font-weight: 900
+    color: #221b40
+  & > table
+    max-width: 650px
+    border-collapse: collapse
+    border-spacing: 2px
+    width: 100%
+    & > tbody
+      & > tr
+        &:nth-child(even)
+          background-color: #fff
+        & > th
+          color: #e9e9ee
+          background-color: #191d32
+          padding: 15px
+          font-size: 1.3rem
+          font-weight: 400
+        & > td
+          padding: 15px
+          font-size: 1rem
+          font-weight: 400
+
+@mixin featuredInner()
+  background-color: #fff
+  font-size: 1.1rem
+  font-weight: 600
+  color: #002A47
+  display: flex
+  flex: 1 1 auto
+  border-bottom: 1px solid #F2F2F2
+  & > img
+    width: calc( 100% /2 )
+  & > div
+    padding: 60px
+    width: calc( 100% /2 )
+    & > .viewMore
+      display: flex
+      justify-content: flex-end
+      align-items: center
+      padding: 50px 0 0
+      font-size: 1rem
+      text-transform: uppercase
+      font-weight: 700
+      color: #003A63
+      cursor: pointer
+      & > a
+        &:hover
+          color: #0995f9
+    & > h2
+      margin-bottom: 20px
+      font-size: 1.5rem
+      font-weight: 900
+  & > .featuredInner__other
+    width: 100%
+    // background-color: #F2F2F2
+    & > .container
+      display: flex
+      justify-content: space-between
+      width: 100%
+      & > div
+        width: calc( (100% - 100px ) / 3)
+        font-size: 0.9rem
+        color: #635c81
+        & > h3
+          margin-bottom: 20px
+          font-size: 1rem
+          font-weight: 700
+          color: #002A47
+  @media screen and (max-width: 960px)
+    & > div
+      padding: 25px
+    & > img
+      width: calc( 100% /2 )
+  @media screen and (max-width: 690px)
+    flex-direction: column
+    background-color: #F2F2F2
+    border-left: 0
+    &:nth-child(odd)
+      flex-direction: column-reverse
+    & > img
+      width: 100%
+    & > div
+      padding: 20px 0
+      width: 100%
+    & > .featuredInner__other
+      & > .container
+        flex-direction: column
+        & > div
+          width: 100%
+
+.wrapper
+  @include wrapper()
+  .blockHeader
+    @include blockHeader()
+  .faclities
+    @include faclities()
+  .featuredInner
+    @include featuredInner()

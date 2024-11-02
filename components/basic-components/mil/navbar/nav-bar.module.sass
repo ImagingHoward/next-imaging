@@ -1,138 +1,138 @@
 @use '../../../../styles/settings/responsive' as responsive
 
 @mixin siteTopHat()
-    background: #2a6ebb
-    border-bottom: 5px solid #e51937
-    display: -webkit-box
-    display: -webkit-flex
-    display: -ms-flexbox
-    display: flex
-    font-size: 1rem
-    width: 100%
+  background: #2a6ebb
+  border-bottom: 5px solid #e51937
+  display: -webkit-box
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+  font-size: 1rem
+  width: 100%
 
 @mixin siteHeader()
-    background-color: #003a63
-    color: #fffe
-    display: flex
-    justify-content: space-between
-    align-items: center
+  background-color: #003a63
+  color: #fffe
+  display: flex
+  justify-content: space-between
+  align-items: center
+  & > .faBars
+    display: none
+  @media screen and (max-width: responsive.$tablet-l)
+    padding-top: 1rem
     & > .faBars
-        display: none
-    @media screen and (max-width: responsive.$tablet-l)
-        padding-top: 1rem
-        & > .faBars
-            display: block
-            margin-right: 30px
-            cursor: pointer
-            &:hover
-                color: #d4d4d4ee
+      display: block
+      margin-right: 30px
+      cursor: pointer
+      &:hover
+        color: #d4d4d4ee
 
 @mixin compartment()
-    position: relative
-    max-width: 1500px
-    display: flex
-    align-items: center
+  position: relative
+  max-width: 1500px
+  display: flex
+  align-items: center
+  padding: 1rem
+  .siteLogo
+    display: block
+    overflow: hidden
+    height: 4rem
+    max-width: 10rem
+    width: 100%
+    white-space: nowrap
+    background: url(../../../../assets/mil/icons/HowardBoxLogo.png) 0 50% no-repeat
+    background-size: contain
+    color: transparent
+    margin-right: 1.5rem
+  & > h3
+    border-left: 1px solid
     padding: 1rem
-    .siteLogo
-        display: block
-        overflow: hidden
-        height: 4rem
-        max-width: 10rem
-        width: 100%
-        white-space: nowrap
-        background: url(../../../../assets/mil/icons/HowardBoxLogo.png) 0 50% no-repeat
-        background-size: contain
-        color: transparent
-        margin-right: 1.5rem
+    padding-right: 0
+    color: #fff
+    display: inline-block
+    font-size: 1.5rem
+    font-weight: bold
+    vertical-align: top
+    min-width: 350px
+    font-family: "serif12", serif
+    line-height: 1.2
+    & > a
+      color: #fff
+      text-decoration: none
+  @media screen and (max-width: responsive.$mobile-l)
+    flex-direction: column
+    justify-content: flex-start
+    align-items: flex-start
+    padding-left: 30px
     & > h3
-        border-left: 1px solid
-        padding: 1rem
-        padding-right: 0
-        color: #fff
-        display: inline-block
-        font-size: 1.5rem
-        font-weight: bold
-        vertical-align: top
-        min-width: 350px
-        font-family: "serif12", serif
-        line-height: 1.2
-        & > a
-            color: #fff
-            text-decoration: none
-    @media screen and (max-width: responsive.$mobile-l)
-        flex-direction: column
-        justify-content: flex-start
-        align-items: flex-start
-        padding-left: 30px
-        & > h3
-            min-width: auto
-            font-size: 1.3rem
-            border-left: 0
-            padding-top: 0
-            padding-left: 0
-            margin-top: 1rem
+      min-width: auto
+      font-size: 1.3rem
+      border-left: 0
+      padding-top: 0
+      padding-left: 0
+      margin-top: 1rem
 
 @mixin nav()
+  display: flex
+  width: 100%
+  justify-content: flex-end
+  align-items: center
+  font-size: 1rem
+  & > ul
     display: flex
-    width: 100%
-    justify-content: flex-end
-    align-items: center
-    font-size: 1rem
-    & > ul
-        display: flex
-        & > li
-            position: relative
-            margin-right: 20px
-            & > a
-                color: #fff
-                font-weight: bold
-                padding: 15px 0px
-                text-transform: uppercase
-                display: inline-block
-                position: relative
-            &:after
-                background: none repeat scroll 0 0 transparent
-                bottom: 0
-                content: ""
-                display: block
-                height: 3px
-                left: 50%
-                position: absolute
-                background: rgb(244, 204, 4)
-                transition: width 0.3s ease 0s, left 0.3s ease 0s
-                width: 0
-            &:hover
-                &:after
-                    width: 100%
-                    left: 0
-    @media screen and (max-width: responsive.$tablet-l)
-        display: none
-        flex-direction: column
+    & > li
+      position: relative
+      margin-right: 20px
+      & > a
+        color: #fff
+        font-weight: bold
+        padding: 15px 0px
+        text-transform: uppercase
+        display: inline-block
+        position: relative
+      &:after
+        background: none repeat scroll 0 0 transparent
+        bottom: 0
+        content: ""
+        display: block
+        height: 3px
+        left: 50%
         position: absolute
-        border: 1px solid gray
-        width: 200px
-        right: 20px
-        top: 170px
-        z-index: 999
-        padding: 20px 10px
-        background-color: #ffff
-        border: 0
-        border-radius: 5px
-        box-shadow: 0 0 1px 2px #f3f3f3
-        & > ul
-            flex-direction: column
-            & > li
-                position: relative
-                margin-right: 30px
-                & > a
-                    color: #003a63
+        background: rgb(244, 204, 4)
+        transition: width 0.3s ease 0s, left 0.3s ease 0s
+        width: 0
+        &:hover
+          &:after
+            width: 100%
+            left: 0
+  @media screen and (max-width: responsive.$tablet-l)
+    display: none
+    flex-direction: column
+    position: absolute
+    border: 1px solid gray
+    width: 200px
+    right: 20px
+    top: 170px
+    z-index: 999
+    padding: 20px 10px
+    background-color: #ffff
+    border: 0
+    border-radius: 5px
+    box-shadow: 0 0 1px 2px #f3f3f3
+    & > ul
+      flex-direction: column
+      & > li
+        position: relative
+        margin-right: 30px
+        & > a
+          color: #003a63
 
 .wrapper
-    .siteTopHat
-        @include siteTopHat()
-    .siteHeader
-        @include siteHeader()
-        .compartment
-            @include compartment()
-    .nav
-        @include nav()
+  .siteTopHat
+    @include siteTopHat()
+  .siteHeader
+    @include siteHeader()
+    .compartment
+      @include compartment()
+  .nav
+    @include nav()
