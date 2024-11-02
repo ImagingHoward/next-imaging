@@ -1,0 +1,27 @@
+@mixin wrapper()
+  min-height: 300px
+  margin-right: auto
+  margin-left: auto
+
+@mixin  blockHeader()
+  font-size: 1.4rem
+  font-weight: 700
+  margin-bottom: 20px
+  background: #003A63
+  color: #fff
+  & > div
+    padding: 1rem 1rem
+    display: flex
+    align-items: center
+    & > svg
+      margin-right: 10px
+
+@mixin events()
+  padding: 1.25rem
+
+.wrapper
+  @include wrapper()
+  .blockHeader
+    @include blockHeader()
+  .events
+    @include events()

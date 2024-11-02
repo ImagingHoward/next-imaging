@@ -66,7 +66,7 @@ const NavBar = () => {
               <a href="/positions">Open Positions</a>
             </li>
             <li>
-              <a href="/contact">Contact Us</a>
+              <a href="/contact_us">Contact Us</a>
             </li>
           </ul>
         </nav>
