@@ -1,4 +1,4 @@
-import kelsey from "@/assets/mil/people/images/Kelsey Wilson.jpg";
+import kelsey from "@/assets/mil/images/people/Kelsey Wilson.jpg";
 
 const Kelsey = {
   image: kelsey,

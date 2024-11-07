@@ -5,7 +5,7 @@ import Events from "@/components/page-components/mil/events/events.component";
 import Container from '@/components/basic-components/layout/container/container.component';
 import Breadcrumbs from '@/components/shared-components/breadcrumbs/breadcrumbs.component';
 
-import heroBackground from "@/assets/mil/events/hero/Events.jpg";
+import heroBackground from "@/assets/mil/hero/Events.jpg";
 
 const EventsPage = () => {
   const breadcrumbs: Breadcrumb[] = [['EVENTS', '']];

@@ -1,4 +1,4 @@
-import stuart from "@/assets/mil/people/images/SWashington.jpg";
+import stuart from "@/assets/mil/images/people/SWashington.jpg";
 
 const Swashington = {
   image: stuart ,

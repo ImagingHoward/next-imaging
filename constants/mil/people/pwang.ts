@@ -1,4 +1,4 @@
-import pwang from "@/assets/mil/people/images/Paul Wang photo.jpg";
+import pwang from "@/assets/mil/images/people/Paul Wang photo.jpg";
 
 const Pwang = {
   image: pwang,

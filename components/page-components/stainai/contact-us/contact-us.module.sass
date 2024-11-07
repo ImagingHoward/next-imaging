@@ -1,0 +1,64 @@
+
+@mixin wrapper()
+  display: flex
+  background: linear-gradient(to bottom left, #2a2f4a, #04060a 0%, #04060a 50%, #2a2f4a 100%)
+  color: white
+  box-sizing: border-box
+  clear: both
+  margin: auto
+  margin: 0 auto
+  padding: 3% 15%
+  min-height: 500px
+  @media screen and (max-width: 690px)
+    flex-direction: column
+    padding: 0 20px
+
+@mixin info()
+  flex: 40%
+  & .title
+    color: rgb(129,125,255 )
+    margin: 20px 0
+    font-size: 1.3rem
+    font-weight: bold
+
+@mixin message()
+  flex: 60%
+  margin: 20px 0
+
+@mixin inputGroup()
+  display: flex
+  flex-direction: column
+  margin: 10px 30px 10px 0
+  & > input, textarea
+    border-bottom: 1px solid #fff
+    cursor: pointer
+    margin: 10px 0
+
+@mixin submit()
+  border-radius: 40px
+  border: 0
+  cursor: pointer
+  font-size: 0.9rem
+  font-weight: 600
+  outline: 0
+  text-align: center
+  text-transform: uppercase
+  white-space: nowrap
+  background: rgb(88, 37, 255)
+  padding: 10px 30px
+  color: #fff
+  float: right
+  margin: 20px
+  &:hover
+    background: #d5beea
+
+.wrapper
+  @include wrapper()
+  & > .info
+    @include info()
+  & > .message
+    @include message()
+    & > .inputGroup
+      @include inputGroup()
+    & > .submit
+      @include submit()

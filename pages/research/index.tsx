@@ -5,7 +5,7 @@ import Container from '@/components/basic-components/layout/container/container.
 import { Research } from '@/components/page-components/mil/research';
 import Breadcrumbs from '@/components/shared-components/breadcrumbs/breadcrumbs.component';
 
-import heroBackground from "@/assets/mil/research/hero/ResearchPage.jpg";
+import heroBackground from "@/assets/mil/hero/ResearchPage.jpg";
 
 const ResearchPage = () => {
   const breadcrumbs: Breadcrumb[] = [['RESEARCH', '']];

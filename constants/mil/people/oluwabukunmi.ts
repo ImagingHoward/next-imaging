@@ -1,4 +1,4 @@
-import oluwabukunmi from "@/assets/mil/people/images/Oluwabukunmi Onapeju.jpg";
+import oluwabukunmi from "@/assets/mil/images/people/Oluwabukunmi Onapeju.jpg";
 
 const Oluwabukunmi = {
   image: oluwabukunmi,

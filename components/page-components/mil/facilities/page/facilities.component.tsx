@@ -4,9 +4,9 @@ import classes from "./facilities.module.sass";
 import { ImLab } from "react-icons/im";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 
-import Bruker from "@/assets/mil/facilities/images/imaging-Facilities-Bruker.jpg";
-import PET from "@/assets/mil/facilities/images/imaging-facilities-BrukerPET.jpg";
-import IVISSpectrum2 from "@/assets/mil/facilities/images/imaging-facilities-IVISSpectrum2.jpg";
+import Bruker from "@/assets/mil/images/facilities/imaging-Facilities-Bruker.jpg";
+import PET from "@/assets/mil/images/facilities/imaging-facilities-BrukerPET.jpg";
+import IVISSpectrum2 from "@/assets/mil/images/facilities/imaging-facilities-IVISSpectrum2.jpg";
 
 const Facilities = () => {
   return (

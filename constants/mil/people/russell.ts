@@ -1,4 +1,4 @@
-import russell from "@/assets/mil/people/images/Russell Antwi.jpg";
+import russell from "@/assets/mil/images/people/Russell Antwi.jpg";
 
 const Russell =  {
   image: russell,

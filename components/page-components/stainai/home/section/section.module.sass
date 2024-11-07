@@ -1,0 +1,88 @@
+@mixin wrapper()
+  box-sizing: border-box
+  clear: both
+  margin: auto
+  margin: 0 auto
+  padding: 30px 5%
+
+@mixin content()
+  position: relative
+  height: 519px
+  display: flex
+  justify-content: center
+  flex-direction: column
+  padding-left: 5%
+  &::after 
+    content: ""
+    position: absolute
+    top: 0
+    left: 0
+    width: 50%
+    height: 100%
+  @media screen and (max-width: 690px)
+    align-items: center
+    justify-content: flex-start
+    padding: 0
+    &::after
+      width: 100%
+
+@mixin heading()
+  display: flex
+  align-items: center
+  color: #fff
+  font-size: 1.6rem
+  font-weight: 600
+  z-index: 5
+  & > img
+    margin-right: 10px
+  @media screen and (max-width: 690px)
+    font-size: 1.4rem
+
+@mixin blurb()
+  color: #fff
+  font-size: 1.2rem
+  padding: 30px
+  width: 70%
+  @media screen and (max-width: 690px)
+    font-size: 1.1rem
+    text-align: center
+    width: 100%
+
+@mixin sectionBackground()
+  width: 90%
+
+@mixin button()
+  padding: 40px
+  & > a
+    z-index: 10
+    border-radius: 30px
+    border: 0
+    cursor: pointer
+    font-size: 0.9rem
+    font-weight: 600
+    outline: 0
+    text-align: center
+    text-transform: uppercase
+    white-space: nowrap
+    background: rgb(37, 150, 190)
+    padding: 20px 30px
+    color: #fff
+    &:hover
+      background: #156b6c
+  @media screen and (max-width: 690px)
+    justify-content: center
+    & > a
+      font-size: 1rem
+
+.wrapper
+  @include wrapper()
+  & > .content
+    @include content()
+    & > .heading
+      @include heading()
+    & > .blurb
+      @include blurb()
+    & .sectionBackground
+      @include sectionBackground()
+    & > .button
+      @include button()

@@ -1,3 +1,4 @@
+
 :root {
   --background: #F2F2F2;
   --foreground: #666;
@@ -34,8 +35,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
+*,
+::before,
+::after {
   box-sizing: border-box;
+  border-style: solid;
+  border-width: 0;
   padding: 0;
   margin: 0;
 }
@@ -95,4 +100,21 @@ th {
 th {
   text-align: left;
   font-weight: bold;
+}
+
+button,
+input,
+optgroup,
+textarea {
+  -webkit-appearance: none; /* 1 */
+  appearance: none;
+  vertical-align: middle;
+  color: inherit;
+  font: inherit;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  text-align: inherit;
+  text-transform: inherit; /* 2 */
 }

@@ -1,4 +1,4 @@
-import mandy from "@/assets/mil/people/images/Mandy.jpg";
+import mandy from "@/assets/mil/images/people/Mandy.jpg";
 
 const Mandy = {
   image: mandy,

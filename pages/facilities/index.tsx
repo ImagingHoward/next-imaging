@@ -5,7 +5,7 @@ import Container from '@/components/basic-components/layout/container/container.
 import Breadcrumbs from '@/components/shared-components/breadcrumbs/breadcrumbs.component';
 import Facilities from '@/components/page-components/mil/facilities/page/facilities.component';
 
-import heroBackground from "@/assets/mil/facilities/hero/Facilities.jpg";
+import heroBackground from "@/assets/mil/hero/Facilities.jpg";
 
 const FacilitiesPage = () => {
   const breadcrumbs: Breadcrumb[] = [['FACILITIES', '']];

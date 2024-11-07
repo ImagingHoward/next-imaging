@@ -1,4 +1,4 @@
-import nzechari from "@/assets/mil/people/images/Naomi H. Zecharias.jpg";
+import nzechari from "@/assets/mil/images/people/Naomi H. Zecharias.jpg";
 
 const Nzechari = {
   image: nzechari,

@@ -1,4 +1,4 @@
-import julianna from "@/assets/mil/people/images/Julianna Davidson.jpg";
+import julianna from "@/assets/mil/images/people/Julianna Davidson.jpg";
 
 const Julianna = {
   image: julianna,

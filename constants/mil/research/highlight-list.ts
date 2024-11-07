@@ -1,15 +1,15 @@
-import research_atlas from "@/assets/mil/research/images/research_atlas-1_tn.jpg";
-import research_atlas_1 from "@/assets/mil/research/images/imaging-research_petatlas-1.jpg";
-import research_atlas_2 from "@/assets/mil/research/images/imaging-research_petatlas-2.jpg";
+import research_atlas from "@/assets/mil/images/research/research_atlas-1_tn.jpg";
+import research_atlas_1 from "@/assets/mil/images/research/imaging-research_petatlas-1.jpg";
+import research_atlas_2 from "@/assets/mil/images/research/imaging-research_petatlas-2.jpg";
 
-import research_tbi from "@/assets/mil/research/images/research_tbi-1_tn.jpg";
-import research_tbi_1 from "@/assets/mil/research/images/research_tbi-1.jpg";
+import research_tbi from "@/assets/mil/images/research/research_tbi-1_tn.jpg";
+import research_tbi_1 from "@/assets/mil/images/research/research_tbi-1.jpg";
 
-import research_chd from "@/assets/mil/research/images/research_chd-1.jpg";
+import research_chd from "@/assets/mil/images/research/research_chd-1.jpg";
 
-import research_molecular_mrs from "@/assets/mil/research/images/research_molecular_mr-1_tn.jpg";
-import research_molecular_mrs_1 from "@/assets/mil/research/images/research_molecular_mr-1.jpg";
-import research_molecular_mrs_2 from "@/assets/mil/research/images/research_molecular_mr-2.jpg";
+import research_molecular_mrs from "@/assets/mil/images/research/research_molecular_mr-1_tn.jpg";
+import research_molecular_mrs_1 from "@/assets/mil/images/research/research_molecular_mr-1.jpg";
+import research_molecular_mrs_2 from "@/assets/mil/images/research/research_molecular_mr-2.jpg";
 
 const ReaserchHighlightsList = {
   petatlas: {

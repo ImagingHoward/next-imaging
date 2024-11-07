@@ -1,4 +1,4 @@
-import linCrop from "@/assets/mil/people/images/Lin_Crop.jpg";
+import linCrop from "@/assets/mil/images/people/Lin_Crop.jpg";
 
 const Slin = {
   image: linCrop ,

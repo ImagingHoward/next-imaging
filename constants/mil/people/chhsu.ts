@@ -1,4 +1,4 @@
-import chhsu from "@/assets/mil/people/images/CHHsu.jpg";
+import chhsu from "@/assets/mil/images/people/CHHsu.jpg";
 
 const Chhsu = {
   image: chhsu ,

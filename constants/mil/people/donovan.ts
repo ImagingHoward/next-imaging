@@ -1,4 +1,4 @@
-import donovan from "@/assets/mil/people/images/DonovanHanson.jpg";
+import donovan from "@/assets/mil/images/people/DonovanHanson.jpg";
 
 const Donovan = {
   image: donovan,

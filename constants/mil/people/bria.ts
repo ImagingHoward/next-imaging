@@ -1,4 +1,4 @@
-import bria from "@/assets/mil/people/images/Bria Woodard.jpg";
+import bria from "@/assets/mil/images/people/Bria Woodard.jpg";
 
 const Bria = {
   image: bria,

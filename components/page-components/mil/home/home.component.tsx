@@ -5,10 +5,10 @@ import { MdOutlineEventAvailable } from "react-icons/md";
 import { GoMegaphone } from "react-icons/go";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 
-import howardRCMI from "@/assets/mil//home/images/howardRCMI.jpg";
-import researchAtlas from "@/assets/mil/home/images/researchAtlas.jpg";
-import researchTbi from "@/assets/mil/home/images/researchTbi.jpg";
-import researchChd from "@/assets/mil/home/images/researchChd.jpg";
+import howardRCMI from "@/assets/mil//images/home/howardRCMI.jpg";
+import researchAtlas from "@/assets/mil/images/home/researchAtlas.jpg";
+import researchTbi from "@/assets/mil/images/home/researchTbi.jpg";
+import researchChd from "@/assets/mil/images/home/researchChd.jpg";
 
 
 const Home = () => {

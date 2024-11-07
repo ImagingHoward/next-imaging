@@ -1,16 +1,16 @@
 
-import facility_mri_1 from "@/assets/mil/facilities/images/imaging-facilities-bruker7t.jpg";
-import facility_mri_2 from "@/assets/mil/facilities/images/imaging-facilities-bruker94t.jpg";
-import mri_sample_1 from "@/assets/mil/facilities/images/imaging-home-MRI-Sample-1536x1012.jpg";
-import mri_sample_2 from "@/assets/mil/facilities/images/imaging-facilities-mri-tumor.jpg";
-import mri_sample_3 from "@/assets/mil/facilities/images/imaging-facilities-mri-brain.jpg";
+import facility_mri_1 from "@/assets/mil/images/facilities/imaging-facilities-bruker7t.jpg";
+import facility_mri_2 from "@/assets/mil/images/facilities/imaging-facilities-bruker94t.jpg";
+import mri_sample_1 from "@/assets/mil/images/facilities/imaging-home-MRI-Sample-1536x1012.jpg";
+import mri_sample_2 from "@/assets/mil/images/facilities/imaging-facilities-mri-tumor.jpg";
+import mri_sample_3 from "@/assets/mil/images/facilities/imaging-facilities-mri-brain.jpg";
 
-import facility_optical_1 from "@/assets/mil/facilities/images/imaging-facilities-IVISSpectrum2.jpg";
-import optical_sample_1 from "@/assets/mil/facilities/images/imaging-home-Optical-Fluorescence.jpg";
-import optical_sample_2 from "@/assets/mil/facilities/images/imaging-home-Optical-Cancer.jpg";
-import optical_sample_3 from "@/assets/mil/facilities/images/imaging-facilities-optical-highthroughput-1536x627.jpg";
+import facility_optical_1 from "@/assets/mil/images/facilities/imaging-facilities-IVISSpectrum2.jpg";
+import optical_sample_1 from "@/assets/mil/images/facilities/imaging-home-Optical-Fluorescence.jpg";
+import optical_sample_2 from "@/assets/mil/images/facilities/imaging-home-Optical-Cancer.jpg";
+import optical_sample_3 from "@/assets/mil/images/facilities/imaging-facilities-optical-highthroughput-1536x627.jpg";
 
-import facility_pet_1 from "@/assets/mil/facilities/images/imaging-facilities-BrukerPET.jpg";
+import facility_pet_1 from "@/assets/mil/images/facilities/imaging-facilities-BrukerPET.jpg";
 
 const FacilitiesList = {
     mri: {

@@ -1,4 +1,4 @@
-import wtu from "@/assets/mil/people/images/WTu.jpg";
+import wtu from "@/assets/mil/images/people/WTu.jpg";
 
 const Wtu = {
   image: wtu ,
