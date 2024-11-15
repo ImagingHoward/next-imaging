@@ -1,0 +1,40 @@
+@mixin wrapper()
+  position: relative
+  & > img
+    height: auto
+    max-width: 100%
+
+@mixin frameworkContent()
+  position: absolute
+  top: 35%
+  left: 6vw
+  color: #fff
+  font-weight: bold
+  font-size: 38px
+  & > .frameworkContentDetail
+    font-size: 20px
+    padding-top: 20px
+    width: 500px
+  @media screen and (max-width: 1200px)
+    top: 35%
+    left: 6vw
+    font-size: 22px
+    & > .frameworkContentDetail
+      font-size: 12px
+      padding-top: 18px
+      width: 300px
+  @media screen and (max-width: 800px)
+    top: 32%
+    left: 10px
+    font-size: 20px
+    & > .frameworkContentDetail
+      font-size: 12px
+      padding-top: 10px
+      width: 220px
+  @media screen and (max-width: 600px)
+    top: 13%
+
+.wrapper
+  @include wrapper()
+  & > .frameworkContent
+    @include frameworkContent()

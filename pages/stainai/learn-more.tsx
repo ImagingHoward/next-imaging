@@ -5,7 +5,7 @@ import LearnMore from '@/components/page-components/stainai/learn-more/learn-mor
 
 import useIsWider from '@/hook/is-wider.hook';
 
-import heroBackground from "@/assets/stainai/images/learn-more.png";
+import heroBackground from "@/assets/stainai/hero/learn-more.png";
 
 
 const LearnMorePage = () => {

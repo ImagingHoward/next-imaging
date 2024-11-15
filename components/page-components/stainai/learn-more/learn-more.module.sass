@@ -1,56 +1,6 @@
 
 @mixin wrapper()
- display: block
-  
-@mixin intro()
-  padding: 3vw 15vw
-  & > .introHeader
-    font-weight: bold
-    font-size: 22px
-    color: #000
-    padding: 20px 0
-  & > .introContent
-    padding-top: 20px
-    font-size: 18px
-    color: #393939
-  @media screen and (max-width: 800px)
-    padding: 3vw 8vw
-
-@mixin framework()
-  position: relative
-  & > .frameworkContent
-    position: absolute
-    top: 35%
-    left: 6vw
-    color: #fff
-    font-weight: bold
-    font-size: 38px
-    & > .frameworkContentDetail
-      font-size: 20px
-      padding-top: 20px
-      width: 500px
-    @media screen and (max-width: 1200px)
-      top: 35%
-      left: 6vw
-      font-size: 22px
-      & > .frameworkContentDetail
-        font-size: 12px
-        padding-top: 18px
-        width: 300px
-    @media screen and (max-width: 800px)
-      top: 32%
-      left: 10px
-      font-size: 20px
-      & > .frameworkContentDetail
-        font-size: 12px
-        padding-top: 10px
-        width: 220px
-    @media screen and (max-width: 600px)
-      top: 13%  
+  display: block
 
 .wrapper
   @include wrapper()
-  & > .intro
-    @include intro()
-  & > .framework
-    @include framework()

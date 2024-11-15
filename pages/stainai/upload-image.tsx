@@ -5,7 +5,7 @@ import Hero from '@/components/basic-components/stainai/hero/hero.component';
 import useIsWider from '@/hook/is-wider.hook';
 
 import heroBackgroundMobile from "@/assets/stainai/hero/upload_hero.svg";
-import heroBackground from "@/assets/stainai/images/upload_hero.png";
+import heroBackground from "@/assets/stainai/hero/upload_hero.png";
 
 const UploadImagePage = () => {
   const isMobile = !useIsWider(960);

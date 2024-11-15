@@ -118,3 +118,17 @@ textarea {
   text-align: inherit;
   text-transform: inherit; /* 2 */
 }
+
+svg,
+img,
+embed,
+object,
+iframe {
+  vertical-align: bottom;
+}
+
+img,
+video {
+  height: auto;
+  max-width: 100%;
+}
