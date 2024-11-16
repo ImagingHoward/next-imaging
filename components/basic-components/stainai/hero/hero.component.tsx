@@ -20,7 +20,7 @@ const Hero = (props: IProps) => {
 
   return (
     <div className={classes.wrapper}>
-      <NavBar />
+      {/* <NavBar /> */}
       <ol>
         <li
           className={classnames(classes.hero)}

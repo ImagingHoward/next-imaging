@@ -1,0 +1,37 @@
+@mixin wrapper()
+  margin: 3rem  auto
+  max-width: 80%
+  padding: 0px 0
+  background-color: #fff
+  color: #29303d
+
+@mixin section()
+  height: 100%
+  display: flex
+  flex-direction: column
+  justify-content: center
+  padding: 2rem 3rem
+    
+@mixin heading()
+  display: flex
+  align-items: center
+  color: #29303d
+  font-size: 1.6rem
+  font-weight: 600
+  z-index: 5
+  & > img
+    margin-right: 20px
+
+@mixin blurb()
+  color: #29303d
+  font-size: 1.2rem
+  padding-top: 20px
+          
+.wrapper
+  @include wrapper()
+  & > .section
+    @include section()
+    & > .heading
+      @include heading()
+    & > .blurb
+      @include blurb()

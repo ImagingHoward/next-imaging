@@ -1,0 +1,70 @@
+@mixin wrapper()
+  background-color: #f4f4f4
+  widows: 100vw
+  color: #000
+  font-weight: 600
+  padding-top: 120px
+
+@mixin usernav()
+  display: flex
+  justify-content: flex-end
+  padding: 10px
+  font-size: 1.2rem
+  cursor: pointer
+  border-bottom: 2px solid #959595
+  &:hover
+    color: #7b7a7a
+
+@mixin signup()
+  margin: auto
+  width: 50%
+  display: flex
+  flex-direction: column
+  align-items: center
+  @media screen and (max-width: 890px)
+    width: 100%
+
+@mixin title()
+  font-size: 1.3rem
+  font-weight: 600
+  text-align: center
+
+@mixin blurb()
+  font-size: 1.15rem
+  font-weight: 400
+  padding: 20px 0
+  width: 80%
+  text-align: center
+
+@mixin button()
+  display: flex
+  padding-top: 20px
+  & > a
+    z-index: 10
+    border-radius: 40px
+    border: 0
+    cursor: pointer
+    font-size: 0.9rem
+    font-weight: 600
+    outline: 0
+    text-align: center
+    text-transform: uppercase
+    white-space: nowrap
+    background: #17b5b7
+    padding: 10px 30px
+    color: #fff
+    &:hover
+      background: #156b6c
+
+.wrapper
+  @include wrapper()
+  & > .usernav
+    @include usernav()
+  & > .signup
+    @include signup()
+    & > .title
+      @include title()
+    & > .blurb
+      @include blurb()
+    & > .button
+      @include button()

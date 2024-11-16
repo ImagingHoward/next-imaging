@@ -2,7 +2,7 @@ import StainaiHead from '@/components/basic-components/stainai/head/head.compone
 import { StainAITemplate } from '../../components/page-templates';
 
 import Hero from '@/components/basic-components/stainai/hero/hero.component';
-import useIsWider from '@/hook/is-wider.hook';
+import useIsWider from '@/hooks/is-wider.hook';
 
 import heroBackgroundMobile from "@/assets/stainai/hero/upload_hero.svg";
 import heroBackground from "@/assets/stainai/hero/upload_hero.png";

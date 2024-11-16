@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./section.module.sass";
 import { StaticImageData } from "next/image";
 
-import useIsWider from '@/hook/is-wider.hook';
+import useIsWider from '@/hooks/is-wider.hook';
 
 interface IProps {
   sectionBackground: StaticImageData,

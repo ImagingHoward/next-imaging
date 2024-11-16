@@ -1,0 +1,25 @@
+@mixin wrapper()
+  padding-top: 120px
+  margin: auto
+  display: flex
+  flex-direction: column
+  align-items: center
+  width: 100%
+
+@mixin createNav()
+  display: flex
+  justify-content: flex-end
+  font-size: 1.2rem
+  font-weight: 600
+  cursor: pointer
+  color: #156b6c
+  width: 100%
+  & > a
+    margin-right: 5%
+  &:hover
+    color: #17b5b7
+
+.wrapper
+  @include wrapper()
+  & > .createNav
+    @include createNav()
