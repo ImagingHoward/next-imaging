@@ -21,7 +21,7 @@ const ContactUs = () => {
 
     setStatus('Sending...');
 
-    const response = await fetch('/api/send-smail', {
+    const response = await fetch('/api/contact', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

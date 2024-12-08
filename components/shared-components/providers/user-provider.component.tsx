@@ -14,7 +14,7 @@ export interface IUserProviderState {
 const UserProvider = (props: IProps) => {
   const [state, setState] = useState<IUserProviderState>({ loading: true });
   
-  console.log('UserProvider: ', props);
+  // console.log('UserProvider: ', props);
 
   return (
 		<UserContext.Provider value={{}} >

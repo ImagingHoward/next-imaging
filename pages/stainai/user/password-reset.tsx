@@ -3,17 +3,17 @@ import { StainAITemplate } from '@/components/page-templates';
 
 import useIsWider from '@/hooks/is-wider.hook';
 
-import Register from '@/components/page-components/stainai/user/signup/register/register.component';
+import PasswordResetForm from '@/components/page-components/stainai/user/password-reset-form/password-reset-form.component';
 
-const RegisterPage = () => {
+const PasswordResetPage = () => {
   const isMobile = !useIsWider(600);
 
   return (
     <StainAITemplate  isNavBGColor={true}>
       <StainaiHead />
-        <Register />
+      <PasswordResetForm />
     </StainAITemplate>
   );
 }
 
-export default RegisterPage;
+export default PasswordResetPage;
