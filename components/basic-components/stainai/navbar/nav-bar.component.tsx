@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import classes from "./nav-bar.module.sass";
 import classnames from 'classnames';
 import { FaBars } from "react-icons/fa";
+import { useRouter } from "next/router";
 
 import logo from "@/assets/stainai/icons/logo.png";
 import hulogo from "@/assets/stainai/icons/hu_log.svg";
+
+import { useUserContext } from "@/hooks/auth";
 
 interface IProps {
   isNavBGColor?: boolean | undefined;
@@ -12,13 +15,21 @@ interface IProps {
 
 const NavBar = (props: IProps) => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const user = useUserContext();
+  const router = useRouter();
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("STAINAI_USER_PROFILE");
+    user.loadUserProfile();
+    router.push("/stainai");
+  };
+
   return (
-    <nav className={classes.wrapper} style={{ backgroundColor: props.isNavBGColor ? "#0c0f18" : ""}}>
+    <nav className={classes.wrapper} style={{ backgroundColor: props.isNavBGColor ? "#0c0f18" : "" }}>
       <div className={classes.logoGroup}>
         <img src={hulogo.src} className={classes.hulogo} onClick={() => window.location.href = 'https://howard.edu/'} />
         <img src={logo.src} className={classes.logo} onClick={() => window.location.href = '/stainai'} />
@@ -44,7 +55,14 @@ const NavBar = (props: IProps) => {
             <a href="/stainai/contact-us">CONTACT US</a>
           </li>
           <li>
-            <a href="/stainai/user">SIGNIN</a>
+            {user?.info ? <a >{user?.info?.firstname} {user?.info?.lastname}</a> : <a href="/stainai/user">SIGNIN</a>}
+          </li>
+          <li>
+            {user?.info &&
+              <a onClick={handleLogout}>
+                Sign Out
+              </a>
+            }
           </li>
         </ul>
       </div>
@@ -82,7 +100,14 @@ const NavBar = (props: IProps) => {
                 <a href="/stainai/contact-us">CONTACT US</a>
               </li>
               <li>
-                <a href="/stainai/user">SIGNIN</a>
+                {user?.info ? <a >${user?.info?.firstname} ${user?.info?.lastname} </a> : <a href="/stainai/user">SIGNIN</a>}
+              </li>
+              <li>
+                {user?.info &&
+                  <a onClick={handleLogout}>
+                    Sign Out
+                  </a>
+                }
               </li>
             </ul>
           </div>

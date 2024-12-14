@@ -2,12 +2,13 @@ declare global {
 	type Breadcrumb = [string, string];
 
 	interface IUserProfile {
-		firstName: string;
-		lastName: string;
-		organization: string
-		email: boolean;
-		roles: Array<string>;
+		use_id: string;
+		email: string;
+		firstname: string;
+		lastname: string;
+		organization: string;
 	}
+
 }
 
 export {};

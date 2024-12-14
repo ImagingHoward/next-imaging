@@ -1,25 +1,37 @@
-import React, { useState } from "react";
-
-import {  UserContext} from '../../../hooks/auth';
+import React, { useEffect, useState, useCallback } from "react";
+import { UserContext } from "../../../hooks/auth";
 
 interface IProps {
-	children: React.ReactNode;
+  children: React.ReactNode;
 }
 
 export interface IUserProviderState {
   loading: boolean;
-	info?: IUserProfile;
+  info?: IUserProfile;
 }
 
 const UserProvider = (props: IProps) => {
-  const [state, setState] = useState<IUserProviderState>({ loading: true });
-  
-  // console.log('UserProvider: ', props);
+  const [state, setState] = useState<IUserProviderState>({ loading: true, });
+
+  // Load user profile from localStorage
+  const loadUserProfile = useCallback(() => {
+    const userProfile = localStorage.getItem("STAINAI_USER_PROFILE")
+
+    if (userProfile) {
+      setState({ loading: false, info: JSON.parse(userProfile) });
+    } else {
+      setState({ loading: false });
+    }
+  }, []);
+
+  useEffect(() => {
+    loadUserProfile();
+  }, []);
 
   return (
-		<UserContext.Provider value={{}} >
-			{props.children}
-		</UserContext.Provider>
+    <UserContext.Provider value={{ info: state.info, loading: state.loading, loadUserProfile }}>
+      {props.children}
+    </UserContext.Provider>
   );
 };
 

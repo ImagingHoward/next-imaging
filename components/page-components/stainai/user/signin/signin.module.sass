@@ -19,7 +19,88 @@
   &:hover
     color: #17b5b7
 
+@mixin signin()
+  max-width: 450px
+  width: 85%
+  margin: 0 auto
+  @media screen and (max-width: 1024px)
+    max-width: 65%
+  @media screen and (max-width: 890px)
+    max-width: 80%
+  input
+    display: block
+    box-sizing: border-box
+    width: 100%
+    border-radius: 4px
+    border: 1px solid #171b2c
+    padding: 10px 15px
+    margin-bottom: 10px
+    font-size: 14px
+  label
+    line-height: 2
+    text-align: left
+    display: block
+    margin-bottom: 13px
+    margin-top: 20px
+    color: #000
+    font-size: 1rem
+    font-weight: 400
+  button[type="submit"],
+  input[type="submit"]
+    background: #27b7b9
+    color: white
+    text-transform: uppercase
+    border: none
+    margin-top: 40px
+    padding: 20px
+    font-size: 16px
+    font-weight: 100
+    letter-spacing: 6px
+    text-align: center
+  button[type="submit"]:hover,
+  input[type="submit"]:hover
+    background: #156b6c
+  button[type="submit"]:active,
+  input[type="button"]:active,
+  input[type="submit"]:active
+    transition: 0.3s all
+    transform: translateY(3px)
+    border: 1px solid transparent
+    opacity: 0.8
+  input:disabled
+    opacity: 0.4
+  input[type="button"]:hover
+    transition: 0.3s all
+  button[type="submit"],
+  input[type="button"],
+  input[type="submit"]
+    -webkit-appearance: none
+
+@mixin error()
+  color: #bf1650
+  &::before
+    display: inline
+    content: "⚠ "
+
+@mixin note()
+  font-size: 1.1rem
+  font-weight: 300
+  cursor: pointer
+  text-align: center
+  margin-bottom: 30px
+
+@mixin errorMessage()
+  color: #bf1650
+
 .wrapper
   @include wrapper()
   & > .createNav
     @include createNav()
+  & > .signin
+    @include signin()
+    & .error
+      @include error()
+    & > .note
+      @include note()
+  & > .errorMessage
+    @include errorMessage()
