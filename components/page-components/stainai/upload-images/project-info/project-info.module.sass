@@ -1,0 +1,25 @@
+@mixin projectInfo()
+  background-color: #e2e2e2
+  width: 100%
+  display: flex
+  justify-content: flex-start
+
+@mixin section()
+  width: 100%
+  display: flex
+  justify-content: flex-start
+  flex-direction: column
+  flex: 50% 1
+  padding: 20px
+  & input
+    background-color: #fff
+    cursor: pointer
+    margin: 10px 0
+    width: 90%
+    font-size: 1.1rem
+
+
+.projectInfo
+  @include projectInfo()
+  & > .section
+    @include section()

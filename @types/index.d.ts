@@ -2,7 +2,7 @@ declare global {
 	type Breadcrumb = [string, string];
 
 	interface IUserProfile {
-		use_id: string;
+		userid: string;
 		email: string;
 		firstname: string;
 		lastname: string;

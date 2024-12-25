@@ -41,7 +41,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           new Date(Date.now() + 60 * 60 * 1000), // Token expires in 1 hour
           new Date(),  // current timestamp (this will be inserted directly)
         ]
-      );   
+      ); 
+
+      await db.end();
 
       const from = process.env.GMAIL_USER || 'imaging.howard@gmail.com';
       const to = email;

@@ -24,7 +24,7 @@ const Home = () => {
         heading="Automated Quantification"
         blurb="Give it a try on your microglial image!"
         button="UPLOAD YOUR DATA"
-        url="/stainai/upload-image"
+        url="/stainai/upload-images"
       />
       <Section
         sectionBackground={vaBg}

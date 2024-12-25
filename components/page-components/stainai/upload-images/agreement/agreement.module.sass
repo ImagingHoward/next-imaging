@@ -1,0 +1,10 @@
+@mixin wrapper()
+  padding: 20px 10px
+  & > input
+    width: 18px
+    height: 18px
+    margin-right: 5px
+    cursor: pointer
+
+.wrapper
+  @include wrapper()

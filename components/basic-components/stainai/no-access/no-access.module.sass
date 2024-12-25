@@ -1,0 +1,19 @@
+@mixin wrapper()
+  background-color: #f4f4f4
+  widows: 100vw
+  color: #000
+  font-size: 26px
+  font-weight: 600
+  text-align: center
+  margin: 30px 10px
+
+@mixin note()
+  color: #156b6c
+  & > a 
+    color: #17b5b7
+
+
+.wrapper
+  @include wrapper()
+  & > .note
+    @include note() 

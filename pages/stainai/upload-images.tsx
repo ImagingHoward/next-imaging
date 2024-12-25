@@ -3,19 +3,20 @@ import { StainAITemplate } from '../../components/page-templates';
 
 import Hero from '@/components/basic-components/stainai/hero/hero.component';
 import useIsWider from '@/hooks/is-wider.hook';
+import UploadImages from '@/components/page-components/stainai/upload-images/upload-images.component';
 
 import heroBackgroundMobile from "@/assets/stainai/hero/upload_hero.svg";
 import heroBackground from "@/assets/stainai/hero/upload_hero.png";
 
-const UploadImagePage = () => {
+const UploadImagesPage = () => {
   const isMobile = !useIsWider(960);
   const customStyles = {
     backgroundPosition: '50% 15%',
-    minHeight: '560px'
+    minHeight: '950px'
   };
   const customMobileStyles = {
-    backgroundPosition: '0% 0%',
-    minHeight: '650px'
+    backgroundPosition: '50% 0%',
+    minHeight: '760px'
   };
   
   return (
@@ -25,9 +26,9 @@ const UploadImagePage = () => {
         background={isMobile? heroBackgroundMobile : heroBackground}
         style={isMobile ? customMobileStyles : customStyles}
       />
-      <h1>StainAI - UploadImagePage</h1>
+      <UploadImages />
     </StainAITemplate>
   );
 }
 
-export default UploadImagePage;
+export default UploadImagesPage;

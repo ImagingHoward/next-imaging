@@ -46,7 +46,7 @@ const NavBar = (props: IProps) => {
           <li>
             <a href="#">TRY IT</a>
             <div className={classes.dropdownContent}>
-              <a href="/stainai/upload-image">Upload Your Data</a>
+              <a href="/stainai/upload-images">Upload Your Data</a>
               <a href="https://stainaiviewer.azurewebsites.net/" target="_blank">See Your Result</a>
               <a href="https://stainaimicroglia.azurewebsites.net/" target="_blank">Stainai Microglia</a>
             </div>
@@ -86,7 +86,7 @@ const NavBar = (props: IProps) => {
               <li>Try it
                 <ul>
                   <li>
-                    <a href="/stainai/upload-image">Upload Your Data</a>
+                    <a href="/stainai/upload-images">Upload Your Data</a>
                   </li>
                   <li>
                     <a href="https://stainaiviewer.azurewebsites.net/" target="_blank">See Your Result</a>

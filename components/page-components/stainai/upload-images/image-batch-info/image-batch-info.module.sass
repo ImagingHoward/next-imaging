@@ -1,0 +1,68 @@
+@mixin wrapper()
+  display: flex
+  width: 100%
+  input[type=text] ,select
+    background-color: #fff
+    cursor: pointer
+    margin: 10px 0
+    width: 90%
+    font-size: 1.1rem
+
+@mixin imageBatchNum()
+  text-align: center
+
+@mixin imageBatchInfo()
+  flex: 1
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+  align-items: center
+
+@mixin row()
+  width: 100%
+  display: flex
+  justify-content: flex-start
+
+@mixin col()
+  width: 100%
+  display: flex
+  justify-content: flex-start
+  flex-direction: column
+  align-items: center
+
+@mixin imageBatchHeader()
+  font-weight: 700
+  padding: 10px 0
+
+@mixin lightgrey()
+  background-color: #e2e2e2
+
+@mixin lightpurple()
+  background-color: #f4f3fa
+
+@mixin lightyellow()
+  background-color: #fbf7f1
+
+@mixin lightblue()
+  background-color: #d8eefd
+
+.wrapper
+  @include wrapper()
+  & > .imageBatchNum
+    @include imageBatchNum()
+    & > .lightgrey
+      @include lightgrey()
+  & > .imageBatchInfo
+    @include imageBatchInfo()
+    & .row
+      @include row()
+    & .col
+      @include col()
+      & > .imageBatchHeader
+        @include imageBatchHeader()
+    & > .lightpurple
+      @include lightpurple()
+    & > .lightyellow
+      @include lightyellow()
+    & > .lightblue
+      @include lightblue()

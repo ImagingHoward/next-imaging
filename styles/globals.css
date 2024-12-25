@@ -119,6 +119,11 @@ textarea {
   text-transform: inherit; /* 2 */
 }
 
+[type="checkbox"]{
+  -webkit-appearance: checkbox;
+  appearance: checkbox;
+}
+
 svg,
 img,
 embed,
