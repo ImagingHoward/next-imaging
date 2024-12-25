@@ -23,7 +23,7 @@ export const useUploadImages = () => {
     username: "",
     email: "",
     project: `STAIN.AI-${new Date().getMonth() + 1
-      }${new Date().getDate()}${new Date().getFullYear()}`,
+  }${new Date().getDate()}${new Date().getFullYear()}-${Math.floor(Math.random() * 10000)}`,
     uploadInfo: [defaultBatch],
     message: "",
   });
