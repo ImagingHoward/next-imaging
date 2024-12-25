@@ -1,7 +1,8 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { BlobServiceClient } from '@azure/storage-blob';
 import archiver from 'archiver';
-import { Readable } from 'stream';  // Import Node.js Readable stream
+import { Readable } from 'stream';
+import { createDbConnection } from '../../utils/db-connection';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { username, project } = req.query;
@@ -12,6 +13,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   try {
+    const db = createDbConnection();
+
+    const [rows]: any = await db.query('SELECT * FROM stainai_upload_info WHERE project = ?', [project]);
+
+    db.end();
+
+    const jsonData = JSON.stringify(rows, null, 2);
+
     const AZURE_CONNECTION_STRING = process.env.NEXT_PUBLIC_AZURE_CONNECTION_STRING;
     if (!AZURE_CONNECTION_STRING) {
       throw new Error('Azure connection string is not defined');
@@ -54,6 +63,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         }
       }
     }
+
+    const jsonStream = Readable.from([jsonData]);
+    archive.append(jsonStream, { name: 'stainai_upload_info.json' });
 
     await archive.finalize();
 
