@@ -74,13 +74,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       // Send a confirmation email to the STAIN.AI Team
       from = process.env.GMAIL_USER || 'imaging.howard@gmail.com';
       to = process.env.GMAIL_USER || 'imaging.howard@gmail.com';
-
       subject = `[Stain.AI] New Upload Images from ${username}`;
 
       message = `
         <p>Hi STAIN.AI Team,</p>
         <p>${username} has submitted new images to STAIN.AI. Please check the admin panel for more details.</p>
-        <p>Download Link:  <a href='https://prbase.azurewebsites.net/download-images?username=${username}&project=${project}'/> here - https://prbase.azurewebsites.net/download-images?username=${username}&project=${project} </a></p>
+        <p>Download Link:  <a href='https://prbase.azurewebsites.net/api/download-images?username=${username}&project=${project}'/> here - https://prbase.azurewebsites.net/api/download-images?username=${username}&project=${project} </a></p>
       `;
 
       await sendMail(from, to, subject, message);

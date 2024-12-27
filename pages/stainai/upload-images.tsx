@@ -18,13 +18,13 @@ const UploadImagesPage = () => {
     backgroundPosition: '50% 0%',
     minHeight: '760px'
   };
-  
+
   return (
     <StainAITemplate>
       <StainaiHead />
       <Hero
-        background={isMobile? heroBackgroundMobile : heroBackground}
-        style={isMobile ? customMobileStyles : customStyles}
+        background={isMobile ? heroBackgroundMobile : heroBackground}
+        style={!isMobile ? customMobileStyles : customStyles}
       />
       <UploadImages />
     </StainAITemplate>

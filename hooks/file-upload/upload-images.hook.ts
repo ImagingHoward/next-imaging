@@ -23,7 +23,7 @@ export const useUploadImages = () => {
     username: "",
     email: "",
     project: `STAIN.AI-${new Date().getMonth() + 1
-  }${new Date().getDate()}${new Date().getFullYear()}-${Math.floor(Math.random() * 10000)}`,
+      }${new Date().getDate()}${new Date().getFullYear()}-${Math.floor(Math.random() * 10000)}`,
     uploadInfo: [defaultBatch],
     message: "",
   });
@@ -91,7 +91,6 @@ export const useUploadImages = () => {
     }));
 
     try {
-      // Use map to create an array of promises for uploadFileToBlob
       const uploadPromises = batches.uploadInfo.map(
         async (batch, idx) => {
           await uploadFileToBlob(

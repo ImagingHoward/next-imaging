@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import classes from "./project-info.module.sass";
-import classnames from "classnames";
 
 import { FaUserCog, FaProjectDiagram } from "react-icons/fa";
 import { Upload } from "@/@types/stainai/upload-images";

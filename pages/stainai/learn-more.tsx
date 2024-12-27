@@ -14,7 +14,7 @@ const LearnMorePage = () => {
     minHeight: '1024px'
   };
   const customMobileStyles = {
-    backgroundPosition: '28%'
+    backgroundPosition: '18%'
   };
 
 

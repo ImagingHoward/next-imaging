@@ -13,13 +13,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   try {
-    const db = createDbConnection();
-
-    const [rows]: any = await db.query('SELECT * FROM stainai_upload_info WHERE project = ?', [project]);
-
-    db.end();
-
-    const jsonData = JSON.stringify(rows, null, 2);
 
     const AZURE_CONNECTION_STRING = process.env.NEXT_PUBLIC_AZURE_CONNECTION_STRING;
     if (!AZURE_CONNECTION_STRING) {
@@ -55,7 +48,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         if (downloadResponse.readableStreamBody) {
           // Convert the Web ReadableStream to a Node.js Readable stream
           const nodeReadableStream = Readable.from(downloadResponse.readableStreamBody);
-          
+
           // Append the converted Node.js stream to the archive
           archive.append(nodeReadableStream, { name: blob.name });
         } else {
@@ -64,13 +57,23 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       }
     }
 
+    const db = createDbConnection();
+
+    const [rows]: any = await db.query('SELECT * FROM stainai_upload_info WHERE project = ?', [project]);
+
+    await db.query('UPDATE stainai_upload_info SET status = "in processing" WHERE project = ?', [project]);
+
+    db.end();
+
+    const jsonData = JSON.stringify(rows, null, 2);
+
     const jsonStream = Readable.from([jsonData]);
     archive.append(jsonStream, { name: 'stainai_upload_info.json' });
 
     await archive.finalize();
 
     archive.on('finish', () => {
-      res.status(200).json({ message: `Successfully downloaded ZIP file for project: ${project} by user: ${username}` });
+      return res.status(200).send(`Successfully downloaded ZIP file for project: ${project} by user: ${username}`);
     });
 
   } catch (error) {
