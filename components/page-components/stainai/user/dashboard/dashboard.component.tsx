@@ -11,6 +11,9 @@ const DashBoard = () => {
   const [filteredData, setFilteredData] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
 
+  // New state variables to manage download status
+  const [downloadStatus, setDownloadStatus] = useState<string | null>(null);
+
   useEffect(() => {
     if (!user?.info?.userid) return;
 
@@ -48,7 +51,43 @@ const DashBoard = () => {
     );
 
     setFilteredData(filtered);
-  }, [user, data])
+  }, [user, data]);
+
+  const onDownload = useCallback(async (e: React.MouseEvent<HTMLAnchorElement>, project: string) => {
+    // Start by setting the download status to "Downloading..."
+    setDownloadStatus('Downloading...');
+
+    try {
+      const response = await fetch(`/api/download-results-zip?username=${user?.info?.firstname} ${user?.info?.lastname}&project=${project}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to download file');
+      }
+
+      const blob = await response.blob();
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'results.zip';
+      link.click();
+      link.remove();
+
+      // Set the status to "Download successful!" after the download is complete
+      setDownloadStatus(`Project "${project}" has been successfully downloaded!`);
+
+      // Reset the download status after a short delay
+      setTimeout(() => {
+        setDownloadStatus(null);
+      }, 3000);  // Reset status after 2 seconds
+    } catch (error) {
+      console.error('Download failed:', error);
+      setDownloadStatus('Failed to download the file. Please try again.');
+    }
+  }, [user]);
 
   return (
     <div className={classes.wrapper}>
@@ -71,6 +110,12 @@ const DashBoard = () => {
         />
       </div>
 
+      {downloadStatus && (
+        <div className={classes.downloadStatus}>
+          {downloadStatus}
+        </div>
+      )}
+
       <table className={classes.tableInfo}>
         <thead>
           <tr>
@@ -86,7 +131,11 @@ const DashBoard = () => {
               <td>{row.project}</td>
               <td>{row.status}</td>
               <td>{row.timestamp}</td>
-              <td>{row.status === 'done' && "DownLoad"}</td>
+              <td>
+                {row.status === 'done' && (
+                  <a onClick={(e) => onDownload(e, row.project)}>Download</a>
+                )}
+              </td>
             </tr>
           ))}
         </tbody>

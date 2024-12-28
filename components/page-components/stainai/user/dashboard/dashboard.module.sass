@@ -44,8 +44,29 @@
         font-weight: 500
         padding: 15px
         text-transform: uppercase
+        & > a
+          cursor: pointer
+          &:hover
+            color: #191d32
       &:nth-child(even)
         background-color: #fff
+
+@mixin downloadStatus()
+  padding: 10px
+  font-size: 14px
+  font-weight: bold
+  text-align: center
+  border-radius: 5px
+  margin-bottom: 20px
+  &.downloading
+    background-color: #f0ad4e
+    color: white
+  &.success
+    background-color: #5cb85c
+    color: white
+  &.error
+    background-color: #d9534f
+    color: white
 
 .wrapper
   @include wrapper()
@@ -55,3 +76,6 @@
     @include searchSection()
   & > .tableInfo
     @include tableInfo()
+
+  & > .downloadStatus
+    @include downloadStatus()
