@@ -35,11 +35,11 @@ jobs:
         with:
           name: node-app
           path: |
-            .next
-            node_modules
+            .next/
+            node_modules/
             package.json
             package-lock.json
-            public  # Ensure public folder is also included if needed
+            public/  # Ensure public folder is also included if needed
 
   deploy:
     runs-on: windows-latest
@@ -58,8 +58,8 @@ jobs:
         run: |
           echo "Listing contents of the deployment package"
           dir .  # List files in the current directory
-          dir .next  # Specifically list contents of the .next folder
           dir node_modules  # List node_modules folder if it's included
+          dir .next  # Specifically list contents of the .next folder
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
