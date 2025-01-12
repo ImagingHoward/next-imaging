@@ -1,3 +1,6 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
 name: Build and deploy Node.js app to Azure Web App - imaging
 
 on:
@@ -23,23 +26,12 @@ jobs:
           npm install
           npm run build --if-present
           npm run test --if-present
-
-      - name: Verify the build output (Check for .next folder)
-        run: |
-          echo "Checking for .next directory"
-          dir .  # List all files in the current directory (Windows way)
-          dir .next  # Check the .next folder contents (Windows way)
-
-      # Zip the necessary files for deployment
-      - name: Zip Release
-        run: |
-          powershell -Command "Compress-Archive -Path .next, node_modules, package.json, package-lock.json, public -DestinationPath release.zip"
-
+      
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          path: release.zip  # Upload the zipped package for deployment
+          path: .
 
   deploy:
     runs-on: ubuntu-latest
@@ -53,18 +45,12 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: node-app
-
-      - name: List contents of deployment package
-        run: |
-          echo "Listing contents of the deployment package"
-          ls -l  # List files in the current directory
-          ls -l release.zip  # List the contents of the zip file
-
+      
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
           app-name: 'imaging'
           slot-name: 'Production'
-          package: release.zip  # Deploy the zipped package
+          package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_22B9D88ED3A4477482077FCBF23E8B89 }}
