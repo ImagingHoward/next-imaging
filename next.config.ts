@@ -8,7 +8,6 @@ const nextConfig: NextConfig = {
     // For example, to silence deprecation warnings:
     silenceDeprecations: ['legacy-js-api'],
   },
-  output: 'export',
 };
 
 export default nextConfig;
