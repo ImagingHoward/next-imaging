@@ -26,12 +26,12 @@ jobs:
           npm install
           npm run build --if-present
           npm run test --if-present
-          
+
       - name: Verify the build output (Check for .next folder)
         run: |
           echo "Checking for .next directory"
-          ls -la .  # List all files in the current directory
-          ls -la .next  # Specifically check the contents of the .next folder
+          dir .  # List all files in the current directory (Windows way)
+          dir .next  # Check the .next folder contents (Windows way)
       
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
