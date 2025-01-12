@@ -42,7 +42,7 @@ jobs:
             public  # Ensure public folder is also included if needed
 
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     needs: build
     environment:
       name: 'Production'
@@ -57,9 +57,9 @@ jobs:
       - name: List contents of deployment package
         run: |
           echo "Listing contents of the deployment package"
-          ls -la .  # List files in the current directory
-          ls -la .next  # Specifically list contents of the .next folder
-          ls -la node_modules  # List node_modules folder if it's included
+          dir .  # List files in the current directory
+          dir .next  # Specifically list contents of the .next folder
+          dir node_modules  # List node_modules folder if it's included
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
