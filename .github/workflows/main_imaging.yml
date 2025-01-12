@@ -26,6 +26,12 @@ jobs:
           npm install
           npm run build --if-present
           npm run test --if-present
+          
+      - name: Verify the build output (Check for .next folder)
+        run: |
+          echo "Checking for .next directory"
+          ls -la .  # List all files in the current directory
+          ls -la .next  # Specifically check the contents of the .next folder
       
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -52,5 +58,5 @@ jobs:
         with:
           app-name: 'imaging'
           slot-name: 'Production'
-          package: './.next'
+          package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_22B9D88ED3A4477482077FCBF23E8B89 }}
