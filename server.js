@@ -1,15 +1,27 @@
-const { createServer } = require("http");
-const next = require("next");
+const express = require('express');
+const next = require('next');
+const path = require('path');
 
-const port = process.env.PORT || 3000;
-const dev = process.env.NODE_ENV !== "production";
+// Check if in development mode or production mode
+const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
 app.prepare().then(() => {
-  createServer((req, res) => {
-    handle(req, res);
-  }).listen(port, (err) => {
+  const server = express();
+
+  // Serve static files (for example, if you have images in /public)
+  server.use('/_next', express.static(path.join(__dirname, '.next')));
+  server.use('/public', express.static(path.join(__dirname, 'public')));
+
+  // Handle all other requests using Next.js routing
+  server.get('*', (req, res) => {
+    return handle(req, res);
+  });
+
+  // Listen on the port defined by Azure (using process.env.PORT)
+  const port = process.env.PORT || 3000;  // Azure will provide a PORT env var
+  server.listen(port, (err) => {
     if (err) throw err;
     console.log(`> Ready on http://localhost:${port}`);
   });
