@@ -22,7 +22,13 @@ app.prepare().then(() => {
   // Listen on the port defined by Azure (using process.env.PORT)
   const port = process.env.PORT || 3000;  // Azure will provide a PORT env var
   server.listen(port, (err) => {
-    if (err) throw err;
+    if (err) {
+      console.error('Error starting server:', err); // Log error for debugging
+      throw err;
+    }
     console.log(`> Ready on http://localhost:${port}`);
   });
+}).catch((err) => {
+  console.error('Error during app preparation:', err);  // Log error during app preparation
+  process.exit(1); // Exit the process if Next.js fails to prepare
 });
