@@ -10,12 +10,13 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
   const server = express();
 
-  // Serve static files (for example, if you have images in /public)
-  server.use('/_next', express.static(path.join(__dirname, '.next')));
-  server.use('/public', express.static(path.join(__dirname, 'public')));
+  // Handle API routes
+  server.all('/api/*', (req, res) => {
+    return handle(req, res);
+  });
 
-  // Handle all other requests using Next.js routing
-  server.get('*', (req, res) => {
+  // Handle everything else
+  server.all('*', (req, res) => {
     return handle(req, res);
   });
 
