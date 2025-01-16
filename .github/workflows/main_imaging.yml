@@ -26,12 +26,16 @@ jobs:
         run: |
           npm run build  # Ensure that next build is executed
 
+      - name: List directory contents (to confirm the build)
+        run: |
+          ls -R  # This will help debug whether .next and other necessary files exist
+
       - name: Upload artifact for deployment job (excluding .next and node_modules)
         uses: actions/upload-artifact@v4
         with:
-          name: node-app
+          name: node-app  # Ensure the artifact name is the same as referenced in the deploy job
           path: |
-            .  # Upload all files
+            .  # Upload all files, you can be more specific if needed
             !**/.next  # Exclude .next folder
             !**/node_modules  # Exclude node_modules folder
             !**/.git  # Optional: Exclude .git folder
@@ -47,7 +51,7 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
-          name: node-app
+          name: node-app  # Ensure this matches the name of the uploaded artifact
 
       - name: Set up Node.js on Azure
         uses: actions/setup-node@v3
