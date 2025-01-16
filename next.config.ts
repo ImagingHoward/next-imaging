@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
     silenceDeprecations: ['legacy-js-api'],
   },
   output: 'standalone',
+  swcMinify: false,
 };
 
 export default nextConfig;

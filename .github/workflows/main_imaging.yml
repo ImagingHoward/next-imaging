@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest  # You can change to ubuntu-latest depending on your environment
+    runs-on: ubuntu-latest  # Use ubuntu-latest for build
 
     steps:
       - uses: actions/checkout@v4
@@ -20,17 +20,21 @@ jobs:
 
       - name: Install dependencies using npm ci
         run: |
-          npm ci  # Installs dependencies using the clean install
+          npm ci --unsafe-perm=true --legacy-peer-deps  # Ensure proper platform-specific binaries
 
       - name: Build the app (next build)
         run: |
           npm run build  # Ensure that next build is executed
 
-      - name: Upload artifact for deployment job
+      - name: Upload artifact for deployment job (excluding .next and node_modules)
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          path: .
+          path: |
+            .  # Upload all files
+            !**/.next  # Exclude .next folder
+            !**/node_modules  # Exclude node_modules folder
+            !**/.git  # Optional: Exclude .git folder
 
   deploy:
     runs-on: ubuntu-latest
@@ -44,6 +48,19 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: node-app
+
+      - name: Set up Node.js on Azure
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+
+      - name: Install dependencies on Azure
+        run: |
+          npm ci --unsafe-perm=true --legacy-peer-deps  # Ensure proper platform-specific binaries
+
+      - name: Build the app (next build) on Azure
+        run: |
+          npm run build  # This will generate the .next folder on Azure
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
