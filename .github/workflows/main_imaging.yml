@@ -29,13 +29,13 @@ jobs:
       - name: Create .zip archive for deployment
         run: |
           cd ./build/standalone
-          zip -r ../deployment-package.zip .
+          zip -r ../deployment-package.zip .  # Create zip in the parent directory (build/)
 
       - name: Upload .zip artifact for deployment
         uses: actions/upload-artifact@v4
         with:
-          name: deployment-package
-          path: deployment-package.zip  # Upload the .zip file
+          name: deployment-package  # The artifact's name
+          path: ./build/deployment-package.zip  # Correct path to the artifact in the build directory
 
   deploy:
     runs-on: ubuntu-latest  # Deploy using Ubuntu
@@ -46,7 +46,7 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
-          name: deployment-package  # Name of the artifact
+          name: deployment-package  # Artifact name (must match the upload name)
 
       - name: Deploy .zip package to Azure Web App
         uses: azure/webapps-deploy@v3
