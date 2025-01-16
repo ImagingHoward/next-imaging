@@ -24,20 +24,19 @@ jobs:
 
       - name: Build the app (next build)
         run: |
-          npm run build  # This generates the .next folder
+          npm run build  # This generates the .next folder and build/standalone directory
 
-        # Zip the build directory
+      # Zip the 'standalone' directory which contains the build output
       - name: Zip Release
-        uses: TheDoctor0/zip-release@0.6.1
-        with:
-          filename: release.zip
-          path: ./build/*
-      
+        run: |
+          echo "Zipping the build/standalone directory"
+          zip -r release.zip build/standalone/*  # Adjust path to 'build/standalone/*'
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          path: release.zip
+          path: release.zip  # Path to the zipped package
 
   deploy:
     runs-on: ubuntu-latest  # Deploy using Ubuntu
