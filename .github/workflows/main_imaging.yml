@@ -28,14 +28,14 @@ jobs:
 
       - name: Create .zip archive for deployment
         run: |
-          cd ./build/standalone
+          cd ./build
           zip -r ../deployment-package.zip .  # Create zip in the parent directory (build/)
 
       - name: Upload .zip artifact for deployment
         uses: actions/upload-artifact@v4
         with:
           name: deployment-package  # The artifact's name
-          path: ./build/deployment-package.zip  # Correct path to the artifact in the build directory
+          path: ./deployment-package.zip  # Correct path to the artifact in the build directory
 
   deploy:
     runs-on: ubuntu-latest  # Deploy using Ubuntu
