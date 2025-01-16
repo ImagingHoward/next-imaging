@@ -29,7 +29,7 @@ jobs:
       - name: Create .zip archive for deployment
         run: |
           cd ./build/standalone
-          zip -r deployment-package.zip .
+          zip -r ../deployment-package.zip .
 
       - name: Upload .zip artifact for deployment
         uses: actions/upload-artifact@v4
