@@ -26,16 +26,18 @@ jobs:
         run: |
           npm run build  # This generates the .next folder
 
-      - name: Create .zip archive for deployment
-        run: |
-          zip -r deployment-package.zip . -x "*.git*" "*.github*"  # Exclude unnecessary folders
-
-
-      - name: Upload .zip artifact for deployment
+        # Zip the build directory
+      - name: Zip Release
+        uses: TheDoctor0/zip-release@0.6.1
+        with:
+          filename: release.zip
+          path: ./build/*
+      
+      - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
-          name: deployment-package
-          path: deployment-package.zip  # Upload the .zip file
+          name: node-app
+          path: release.zip
 
   deploy:
     runs-on: ubuntu-latest  # Deploy using Ubuntu
@@ -46,7 +48,7 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
-          name: deployment-package  # Name of the artifact
+          name: node-app
 
       - name: Deploy .zip package to Azure Web App
         uses: azure/webapps-deploy@v3
@@ -54,5 +56,5 @@ jobs:
         with:
           app-name: 'imaging'  # Your Azure Web App name
           slot-name: 'Production'  # Your Azure slot name
-          package: deployment-package.zip  # Path to the uploaded .zip package
+          package: release.zip  # Path to the uploaded .zip package
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_22B9D88ED3A4477482077FCBF23E8B89 }}  # Your Azure Publish Profile secret
