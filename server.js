@@ -10,12 +10,19 @@ app.prepare().then(() => {
 
   // Use the dynamic port provided by Azure, or fallback to port 3000 for local development
   const port = process.env.PORT || 3000;
+
   server.all('*', (req, res) => {
     return handle(req, res);
   });
 
   server.listen(port, (err) => {
-    if (err) throw err;
+    if (err) {
+      console.error("Server failed to start:", err);
+      throw err;
+    }
     console.log(`> Ready on http://localhost:${port}`);
   });
+}).catch((err) => {
+  console.error("Error during app preparation:", err);
+  process.exit(1);
 });
