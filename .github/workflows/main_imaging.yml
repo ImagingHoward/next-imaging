@@ -27,7 +27,6 @@ jobs:
           npm run build --if-present
           npm run test --if-present
           mv ./build/static ./build/standalone/build
-          mv ./build ./build/standalone/build
 
       - name: Create .zip archive for deployment
         run: |
