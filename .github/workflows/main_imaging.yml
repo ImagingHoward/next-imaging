@@ -33,7 +33,6 @@ jobs:
           cp -r .next deploy/.next
           cp -r node_modules deploy/node_modules
           cp -r public deploy/public  # if you have a public folder
-          cd -r  ./.next/static deploy/static # if you have a static folder
           cp server.js deploy/server.js
           cp package.json deploy/package.json
           cp .env.production deploy/.env.production
