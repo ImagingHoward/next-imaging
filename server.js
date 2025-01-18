@@ -1,16 +1,21 @@
 const express = require('express');
-const path = require('path');
-const app = express();
+const next = require('next');
 
-// Serve static files from the public folder
-app.use(express.static(path.join(__dirname, 'public')));
+const dev = process.env.NODE_ENV !== 'production';
+const app = next({ dev });
+const handle = app.getRequestHandler();
 
-// Route for testing
-app.get('/', (req, res) => {
-  res.send('<h1>Hello from Express!</h1>');
-});
+app.prepare().then(() => {
+  const server = express();
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`App running on port ${port}`);
+  // Use the dynamic port provided by Azure, or fallback to port 3000 for local development
+  const port = process.env.PORT || 3000;
+  server.all('*', (req, res) => {
+    return handle(req, res);
+  });
+
+  server.listen(port, (err) => {
+    if (err) throw err;
+    console.log(`> Ready on http://localhost:${port}`);
+  });
 });

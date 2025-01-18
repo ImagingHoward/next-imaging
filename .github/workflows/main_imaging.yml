@@ -30,13 +30,15 @@ jobs:
           mkdir -p deploy
 
           # Copy necessary files to the deploy directory
-          cp -r .next deploy/.next
           cp -r node_modules deploy/node_modules
-          cp -r public deploy/public  # if you have a public folder
-          cp server.js deploy/server.js
           cp package.json deploy/package.json
-          cp .env.production deploy/.env.production
+          cp server.js deploy/server.js
+          cp -r public deploy/public  # if you have a public folder
+          cp -r .next deploy/.next
           cp web.config deploy/web.config
+         
+          cd -r  ./.next/static deploy/static # if you have a static folder
+          cp .env.production deploy/.env.production        
           
           # Zip the deploy directory
           cd deploy
