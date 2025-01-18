@@ -10,14 +10,19 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
   const server = express();
 
-  // Serve static files like images, CSS, etc.
-  server.use('/_next', express.static(path.join(__dirname, '.next')));
-  server.use('/static', express.static(path.join(__dirname, 'static')));
-
-  // Handle API routes (if any)
-  server.all('/api/*', (req, res) => {
-    return handle(req, res);
+   // Serve a simple static HTML page
+  server.get('/', (req, res) => {
+    res.send('<h1>Hello World!</h1>');
   });
+
+  // // Serve static files like images, CSS, etc.
+  // server.use('/_next', express.static(path.join(__dirname, '.next')));
+  // server.use('/static', express.static(path.join(__dirname, 'static')));
+
+  // // Handle API routes (if any)
+  // server.all('/api/*', (req, res) => {
+  //   return handle(req, res);
+  // });
 
   // Handle everything else
   server.all('*', (req, res) => {
