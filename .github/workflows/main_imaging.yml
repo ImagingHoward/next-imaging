@@ -35,6 +35,7 @@ jobs:
           cp -r public deploy/public  # if you have a public folder
           cp server.js deploy/server.js
           cp package.json deploy/package.json
+          cp .env.production deploy/.env.production
           
           # Zip the deploy directory
           cd deploy
