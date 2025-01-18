@@ -10,6 +10,11 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
   const server = express();
 
+  // Handle API routes
+  server.all('/api/*', (req, res) => {
+    return handle(req, res);
+  });
+
   // Handle everything else
   server.all('*', (req, res) => {
     return handle(req, res);

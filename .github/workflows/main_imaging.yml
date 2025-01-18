@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'imaging'
           slot-name: 'Production'
-          package: ./build/standalone
+          package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_22B9D88ED3A4477482077FCBF23E8B89 }}
