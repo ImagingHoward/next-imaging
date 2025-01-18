@@ -1,6 +1,5 @@
 const express = require('express');
 const next = require('next');
-const path = require('path');
 
 // Check if in development mode or production mode
 const dev = process.env.NODE_ENV !== 'production';
@@ -10,18 +9,20 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
   const server = express();
 
-  // Handle API routes
+  // Handle API routes (if any)
   server.all('/api/*', (req, res) => {
     return handle(req, res);
   });
 
-  // Handle everything else
+  // Handle all other routes through Next.js
   server.all('*', (req, res) => {
     return handle(req, res);
   });
 
-  // Listen on the port defined by Azure (using process.env.PORT)
-  const port = process.env.PORT || 3000;  // Azure will provide a PORT env var
+  // Get the port from the Azure environment variable
+  const port = process.env.PORT || 3000;
+
+  // Listen on the correct port (either from Azure or default 3000)
   server.listen(port, (err) => {
     if (err) {
       console.error('Error starting server:', err); // Log error for debugging
