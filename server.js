@@ -1,21 +1,28 @@
-const { createServer } = require('http')
-const { parse } = require('url')
-const next = require('next')
+const express = require('express');
+const next = require('next');
 
-const port = parseInt(process.env.PORT || '3000', 10)
-const dev = process.env.NODE_ENV !== 'production'
-const app = next({ dev })
-const handle = app.getRequestHandler()
+const dev = process.env.NODE_ENV !== 'production';
+const app = next({ dev });
+const handle = app.getRequestHandler();
 
 app.prepare().then(() => {
-  createServer((req, res) => {
-    const parsedUrl = parse(req.url, true)
-    handle(req, res, parsedUrl)
-  }).listen(port)
+  const server = express();
 
-  console.log(
-    `> Server listening at http://localhost:${port} as ${
-      dev ? 'development' : process.env.NODE_ENV
-    }`
-  )
-})
+  // Use the dynamic port provided by Azure, or fallback to port 3000 for local development
+  const port = process.env.PORT || 3000;
+
+  server.all('*', (req, res) => {
+    return handle(req, res);
+  });
+
+  server.listen(port, (err) => {
+    if (err) {
+      console.error("Server failed to start:", err);
+      throw err;
+    }
+    console.log(`> Ready on http://localhost:${port}`);
+  });
+}).catch((err) => {
+  console.error("Error during app preparation:", err);
+  process.exit(1);
+});
