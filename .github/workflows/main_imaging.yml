@@ -1,6 +1,3 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-
 name: Build and deploy Node.js app to Azure Web App - imaging
 
 on:
@@ -26,18 +23,28 @@ jobs:
           npm install
           npm run build --if-present
           npm run test --if-present
-          mv ./.next/static ./.next/standalone/.next
 
       - name: Create .zip archive for deployment
         run: |
-          cd ./.next/standalone
+          # Create a deployable directory
+          mkdir -p deploy
+
+          # Copy necessary files to the deploy directory
+          cp -r .next deploy/.next
+          cp -r node_modules deploy/node_modules
+          cp -r public deploy/public  # if you have a public folder
+          cp server.js deploy/server.js
+          cp package.json deploy/package.json
+          
+          # Zip the deploy directory
+          cd deploy
           zip -r ../deployment-package.zip .
-      
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          path: ./.next/deployment-package.zip
+          path: deployment-package.zip
 
   deploy:
     runs-on: ubuntu-latest
