@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
     // For example, to silence deprecation warnings:
     silenceDeprecations: ['legacy-js-api'],
   },
+  distDir: 'build',
   output: 'standalone',
 };
 

@@ -24,14 +24,15 @@ jobs:
       - name: npm install, build, and test
         run: |
           npm install
-          npm run build
-          mv .next/static .next/standalone/.next
+          npm run build --if-present
+          npm run test --if-present
+          mv ./build/static ./build/standalone/build
       
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          path: .next/standalone
+          path: ./build/standalone
 
   deploy:
     runs-on: ubuntu-latest
@@ -52,5 +53,5 @@ jobs:
         with:
           app-name: 'imaging'
           slot-name: 'Production'
-          package: .
+          package: ./build/standalone
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_22B9D88ED3A4477482077FCBF23E8B89 }}
