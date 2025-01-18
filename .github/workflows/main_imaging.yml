@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
@@ -31,7 +31,7 @@ jobs:
       - name: Create .zip archive for deployment
         run: |
           cd ./build/standalone
-          zip -r ../deployment-package.zip .  # Create zip in the parent directory (build/)
+          zip -r ../deployment-package.zip .
       
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
